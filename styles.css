@@ -1,0 +1,120 @@
+body {
+    font-family: 'Alegreya Sans', sans-serif;
+    background-color: #7B8FB2;
+}
+
+.fade-in {
+    -webkit-animation: fadein 2s;
+    /* Safari, Chrome and Opera > 12.1 */
+    -moz-animation: fadein 2s;
+    /* Firefox < 16 */
+    -ms-animation: fadein 2s;
+    /* Internet Explorer */
+    -o-animation: fadein 2s;
+    /* Opera < 12.1 */
+    animation: fadein 2s;
+}
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+
+/* Firefox < 16 */
+
+@-moz-keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+
+/* Safari, Chrome and Opera > 12.1 */
+
+@-webkit-keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+
+/* Internet Explorer */
+
+@-ms-keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.centre-contents {
+    text-align: center;
+}
+
+.lg-box {
+    transform: scale(3);
+    -webkit-transform: scale(3);
+}
+
+.bottom-pad {
+    margin-bottom: 20px;
+}
+
+.top-pad {
+    margin-top: 50px;
+}
+
+.big-top-pad {
+    margin-top: 100px;
+}
+
+#heading {
+    font-family: 'Lora', serif;
+    color: #FFE6E2;
+    text-decoration: underline;
+    text-decoration-style: double;
+}
+
+#subheading {
+    font-family: 'Niconne', cursive;
+    color: #FFE6E2;
+}
+
+#checkboxes {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.button {
+    background-color: #808C60;
+    color: #FFE6E2;
+    border: solid 1px #3F5057;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+#output-text {
+    background-color: #FFE6E2;
+    border-radius: 10px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border: solid 1px #81A4B2;
+    box-shadow: 1px 2px 20px #3F5057;
+}
+
+#output-heading {
+    font-family: 'Lora', serif;
+}
