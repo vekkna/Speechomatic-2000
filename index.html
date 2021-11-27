@@ -3,64 +3,107 @@
 
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>Speechomatic 2000</title>
+    <link href="https://www.w3schools.com/w3css/4/w3.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Alegreya+Sans|Niconne|Lora:700' rel='stylesheet'
+          type='text/css'>
+    <link href="css/styles.css" rel="stylesheet">
 
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
-    <link href='https://fonts.googleapis.com/css?family=Alegreya+Sans|Niconne|Lora:700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="styles.css">
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-            <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-            <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-        <![endif]-->
 </head>
 
 <body>
-   
-    <div class="container-fluid bg">
 
-        <h1 id="heading" class="centre-contents top-pad">Speechomatic 2000</h1>
-        <h3 id="subheading" class="centre-contents">Automatic speech generator for today's busy politician</h3>
-        <h4 class="centre-contents top-pad">What elements do you want your speech to favour?</h4>
-
-        <div id="checkboxes" class="row centre-contents">
-            <div class="col-sm-3">
-                <h3 class="centre-contents bottom-pad">Socialism</h3>
-                <input type="checkbox" class="lg-box" id="socialism-checkbox">
-            </div>
-
-            <div class="col-sm-3">
-                <h3 class="centre-contents bottom-pad">Capitalism</h3>        
-                }; <input type="checkbox" class="lg-box" id="capitalism-checkbox">
-            </div>
-
-            <div class="col-sm-3">
-                <h3 class="centre-contents bottom-pad">Tolerance</h3>
-                <input type="checkbox" class="lg-box" id="tolerance-checkbox">
-            </div>
-
-            <div class="col-sm-3">
-                <h3 class="centre-contents bottom-pad">Nationalism</h3>
-                <input type="checkbox" class="lg-box" id="nationalism-checkbox">
-            </div>
-
-        </div>
-        <div class="centre-contents">
- 
-            <button id="create-speech-btn" class="btn btn-lg top-pad bottom-pad button">Create Speech</button>
+<nav class="w3-bar">
+    <a class="w3-bar-item w3-button" href="index.html">Speechomatic 2000</a>
+    <a class="w3-bar-item w3-button" href="pages/markovchains.html">Markov Chains</a>
+    <div class="w3-dropdown-hover">
+        <button class="w3-button">My other projects</button>
+        <div class="w3-dropdown-content w3-bar-block w3-card-4">
+            <a class="w3-bar-item w3-button" href="https://fridgemagnets-fm.firebaseapp.com">Fridge Magnets</a>
+            <a class="w3-bar-item w3-button"
+               href="https://play.google.com/store/apps/developer?id=Neil+Crowley&hl=en_US&gl=US">PlayStore</a>
+            <a class="w3-bar-item w3-button" href="https://vekkna.github.io/studentshowcase/">St Johns Cork</a>
         </div>
     </div>
+</nav>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="texts.js"></script>
-    <script type="text/javascript" src="markov.js"></script>
-    <script type="text/javascript" src="input.js"></script>
+<header>
+    <h1>Speechomatic 2000</h1>
+    <h3>Automatic speech generator for today's busy politician</h3>
+    <h4>Which elements would you like your speech to favour?</h4>
+</header>
+
+<section id="checkboxes">
+
+    <figure>
+        <article class="w3-tooltip">
+            <p class="w3-text w3-tag w3-black w3-round w3-animate-opacity">A political and economic theory of social organization which advocates that the means of production, distribution, and exchange should be owned or regulated by the community as a whole.</p>
+            <label for="socialism-checkbox"><img alt="" src="images/socialism.png" ></label>
+        </article>
+        <div>
+            <figcaption>Socialism</figcaption>
+            <input id="socialism-checkbox" type="checkbox">
+        </div>
+    </figure>
+
+    <figure>
+        <article class="w3-tooltip">
+            <p class="w3-text w3-tag w3-black w3-round w3-animate-opacity">An economic and political system in which a country's trade and industry are controlled by private owners for profit, rather than by the state.</p>
+        <label for="capitalism-checkbox"><img alt="" src="images/capitalism.jpg"></label>
+        </article>
+        <div>
+            <figcaption>Capitalism</figcaption>
+            <input id="capitalism-checkbox" type="checkbox">
+        </div>
+    </figure>
+
+    <figure>
+        <article class="w3-tooltip">
+            <p class="w3-text w3-tag w3-black w3-round w3-animate-opacity">The ability or willingness to tolerate the existence of opinions or behaviour that one dislikes or disagrees with.</p>
+        <label for="tolerance-checkbox"><img alt="" src="images/tolerance.jpg"></label>
+        </article>
+        <div>
+            <figcaption>Tolerance</figcaption>
+            <input id="tolerance-checkbox" type="checkbox">
+        </div>
+    </figure>
+
+    <figure>
+        <article class="w3-tooltip">
+            <p class="w3-text w3-tag w3-black w3-round w3-animate-opacity">Identification with one's own nation and support for its interests.</p>
+        <label for="nationalism-checkbox"><img alt="" src="images/nationalism.png"></label>
+        </article>
+        <div>
+            <figcaption>Nationalism</figcaption>
+            <input id="nationalism-checkbox" type="checkbox">
+        </div>
+    </figure>
+
+</section>
+<div id=input-button" class="centre-content">
+    <button id="create-speech-btn">Create Speech</button>
+</div>
+
+<section id="output">
+
+</section>
+
+
+<footer>
+<p>&copy2021 Neil Crowley</p>
+</footer>
+
+
+<script
+        crossorigin="anonymous"
+        integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI="
+        src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script>
+<script src="code/texts.js" type="text/javascript"></script>
+<script src="code/markov.js" type="text/javascript"></script>
+<script src="code/input.js" type="text/javascript"></script>
 
 </body>
 

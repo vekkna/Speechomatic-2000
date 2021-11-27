@@ -1,0 +1,125 @@
+body {
+    font-family: 'Alegreya Sans', sans-serif;
+    background-color: #7B8FB2;
+    background-image: url("https://glmeducation.com/wp-content/uploads/2017/06/political-speech.jpg");
+    background-size: cover;
+}
+
+nav {
+    background-color: darkorange;
+}
+
+header h1 {
+    font-family: 'Lora', serif;
+    color: #FFE6E2;
+    text-decoration: underline;
+    text-decoration-style: double;
+    text-align: center;
+    font-size: xxx-large;
+}
+
+header h3 {
+    font-family: 'Niconne', cursive;
+    color: #FFE6E2;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+header h4 {
+    text-align: center;
+    font-family: 'Lora', serif;
+    font-weight: lighter;
+    color: white;
+}
+
+#checkboxes {
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
+}
+
+figure div {
+    border-radius: 5px;
+    margin-top: 5px;
+    display: flex;
+    justify-content: center;
+    background-color: black;
+}
+
+img {
+    height: 100px;
+    width: 100px;
+    transition: all .3s;
+    box-shadow: black 2px 2px;
+    border-radius: 5px;
+}
+
+img:hover {
+    filter: brightness(50%);
+    cursor: pointer;
+}
+
+figcaption {
+    padding: 5px 5x 0px 0px;
+    color: white;
+    margin-right: 2px;
+
+}
+
+figure p {
+    position: absolute;
+    bottom: 90px;
+    left: -200px;
+    width: 400px;
+}
+
+#create-speech-btn {
+    background-color: darkorange;
+    color: #FFE6E2;
+    border: solid 3px #3F5057;
+    border-radius: 6px;
+    cursor: pointer;
+    height: 70px;
+    width: 150px;
+    font-size: x-large;
+}
+
+#create-speech-btn:hover {
+    filter: brightness(50%);
+}
+
+#output-heading {
+    font-family: 'Lora', serif;
+    text-align: center;
+}
+
+.text-box {
+    background-color: #FFE6E2;
+    border-radius: 10px;
+    padding: 0 40px 15px 40px;
+    margin: 50px 50px;
+    border: solid 3px #81A4B2;
+    box-shadow: 1px 2px 20px #3F5057;
+}
+
+article h4 {
+    text-align: center;
+    background-color: darkorange;
+}
+
+video {
+    height: 300px;
+}
+
+.centre-content {
+    display: flex;
+    justify-content: center;
+}
+
+footer {
+    position: fixed;
+    bottom: 10px;
+    right: 20px;
+    font-size: larger;
+}
+
