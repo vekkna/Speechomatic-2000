@@ -15,21 +15,26 @@ const politicalElements = [
     new PoliticalElement(document.querySelector('#nationalism-checkbox'), Texts.nationalist)];
 
 $('#create-speech-btn').click(function () {
-
+// Remove any previous speech
     $('#output-text').remove();
-    const qualities = Texts.qualities.sort((a, b) => 0.5 - Math.random());
+// combine the texts of any political elements whose checkboxes are checked
     const input = politicalElements.filter(el => el.checkbox.checked).map(el => el.text).join();
 
     if (!input) {
         alert("Check at least one box.");
         return;
     }
-    // build a new output text with three random qualities and a markov chain made from the selected elements
+
     const speech = Markov.MakeRandomText(input);
-    $('#output').append(MakeOutputHTML(qualities, speech));
-    //   $('html, body').animate({scrollTop: $('#output').offset().top}, 2000);
+    $('#output').append(MakeOutputHTML(speech));
+    $('html, body').animate({scrollTop: $('#output').offset().top}, 2000);
 });
 
-function MakeOutputHTML(_qualities, _speech) {
-    return `<div id="output-text" class="text-box"><h4 id="output-heading"> ${_qualities[0]}. ${_qualities[1]}. ${_qualities[2]}.</h4><p> ${_speech}</p></div>`;
+function MakeOutputHTML(_speech) {
+    // Shuffle the the politician's qualities
+    const qualities = Texts.qualities.sort((a, b) => 0.5 - Math.random());
+    return `<article id="output-text" class="text-box">
+                <h4 id="output-heading"> ${qualities[0]}. ${qualities[1]}. ${qualities[2]}.</h4>
+                    <p> ${_speech}</p>
+                        </article>`;
 }

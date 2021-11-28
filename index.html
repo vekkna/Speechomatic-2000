@@ -5,7 +5,6 @@
     <meta charset="utf-8">
     <meta content="IE=edge" http-equiv="X-UA-Compatible">
     <meta content="width=device-width, initial-scale=1" name="viewport">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>Speechomatic 2000</title>
     <link href="https://www.w3schools.com/w3css/4/w3.css" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Alegreya+Sans|Niconne|Lora:700' rel='stylesheet'
@@ -30,7 +29,7 @@
     </div>
 </nav>
 
-<header>
+<header class="w3-row">
     <h1>Speechomatic 2000</h1>
     <h3>Automatic speech generator for today's busy politician</h3>
     <h4>Which elements would you like your speech to favour?</h4>
@@ -38,7 +37,7 @@
 
 <section id="checkboxes">
 
-    <figure>
+    <figure id="socialism">
         <article class="w3-tooltip">
             <p class="w3-text w3-tag w3-black w3-round w3-animate-opacity">A political and economic theory of social organization which advocates that the means of production, distribution, and exchange should be owned or regulated by the community as a whole.</p>
             <label for="socialism-checkbox"><img alt="" src="images/socialism.png" ></label>
@@ -49,7 +48,7 @@
         </div>
     </figure>
 
-    <figure>
+    <figure id="capitalism">
         <article class="w3-tooltip">
             <p class="w3-text w3-tag w3-black w3-round w3-animate-opacity">An economic and political system in which a country's trade and industry are controlled by private owners for profit, rather than by the state.</p>
         <label for="capitalism-checkbox"><img alt="" src="images/capitalism.jpg"></label>
@@ -60,7 +59,7 @@
         </div>
     </figure>
 
-    <figure>
+    <figure id="tolerance">
         <article class="w3-tooltip">
             <p class="w3-text w3-tag w3-black w3-round w3-animate-opacity">The ability or willingness to tolerate the existence of opinions or behaviour that one dislikes or disagrees with.</p>
         <label for="tolerance-checkbox"><img alt="" src="images/tolerance.jpg"></label>
@@ -71,7 +70,7 @@
         </div>
     </figure>
 
-    <figure>
+    <figure id="nationalism">
         <article class="w3-tooltip">
             <p class="w3-text w3-tag w3-black w3-round w3-animate-opacity">Identification with one's own nation and support for its interests.</p>
         <label for="nationalism-checkbox"><img alt="" src="images/nationalism.png"></label>
@@ -83,6 +82,7 @@
     </figure>
 
 </section>
+
 <div id=input-button" class="centre-content">
     <button id="create-speech-btn">Create Speech</button>
 </div>

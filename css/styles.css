@@ -35,7 +35,15 @@ header h4 {
 #checkboxes {
     display: flex;
     justify-content: center;
-    padding-top: 10px;
+    flex-direction: row;
+}
+
+@media (max-width: 800px) {
+    #checkboxes{
+        flex-direction: column;
+        margin: auto;
+        width: 180px;
+    }
 }
 
 figure div {
@@ -44,6 +52,7 @@ figure div {
     display: flex;
     justify-content: center;
     background-color: black;
+    width: 100px;
 }
 
 img {
@@ -117,9 +126,9 @@ video {
 }
 
 footer {
-    position: fixed;
+    position: relative;
     bottom: 10px;
-    right: 20px;
+    left: 10px;
     font-size: larger;
 }
 
