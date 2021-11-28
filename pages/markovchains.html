@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>Speechomatic 2000</title>
+    <link href="https://www.w3schools.com/w3css/4/w3.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Alegreya+Sans|Niconne|Lora:700' rel='stylesheet'
+          type='text/css'>
+    <link href="../css/styles.css" rel="stylesheet">
+</head>
+
+<body>
+
+<nav class="w3-bar">
+    <a class="w3-bar-item w3-button" href="../index.html">Speechomatic 2000</a>
+    <a class="w3-bar-item w3-button" href="markovchains.html">Markov Chains</a>
+    <div class="w3-dropdown-hover">
+        <button class="w3-button">My other projects</button>
+        <div class="w3-dropdown-content w3-bar-block w3-card-4">
+            <a class="w3-bar-item w3-button" href="https://fridgemagnets-fm.firebaseapp.com">Fridge Magnets</a>
+            <a class="w3-bar-item w3-button"
+               href="https://play.google.com/store/apps/developer?id=Neil+Crowley&hl=en_US&gl=US">PlayStore</a>
+            <a class="w3-bar-item w3-button" href="https://vekkna.github.io/studentshowcase/">St Johns Cork</a>
+        </div>
+    </div>
+</nav>
+
+<header>
+    <h1>Speechomatic 2000</h1>
+    <h3>Automatic speech generator for today's busy politician</h3>
+
+</header>
+
+<section class="text-box" id="info">
+    <article>
+        <h4>Markov Chains</h4>
+        <h5>Markov Chains are models that determine the next element of a sequence according to certain rules. They can
+            be used to create
+            strange but almost believable text, if the rule is that each word is determined by the words that preceded
+            it.</h5>
+        <h6>In this site:</h6>
+        <ol>
+            <li>When you select checkboxes, actual speeches of those types are combined.
+            <li>That combination is analysed -
+                for each adjacent word pair, each word that follows it is added to an associated list.
+            </li>
+            <li>Then a new text is created by staring with a random pair of adjacent words and picking at random a word
+                from the list of
+                those which can follow. Then that new word and the one before it become the next pair, and so on.
+            </li>
+        </ol>
+    </article>
+</section>
+<div class="centre-content">
+    <video controls src="../images/markovVideo.mp4"></video>
+</div>
+
+<footer>
+    <p>&copy2021 Neil Crowley</p>
+</footer>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="../code/info.js" type="text/javascript"></script>
+
+</body>
+
+</html>

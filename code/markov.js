@@ -1,49 +1,9 @@
-/* Breaks an input string into a markov chain and generates a random text from it*/
-
-// Adds an entry to the markov chain. The chain in an object, each entry is a property: value pair, the property being the two adjacent words in the text, the value being the array of words that follow them.
-function MakeEntry(currPair, followingWord, records) {
-    if (records[currPair]) {
-        records[currPair].push(followingWord);
-    } else {
-        records[currPair] = [followingWord];
-    }
-}
-
-// Helper function used to get random elements from lists
-function GetRandomInt(top) {
-    return Math.floor(Math.random() * top);
-}
-
-// Function to make the chain. Takes an array of words that was made by splitting a long text string.
-function MakeMarkovChain(inputArray) {
-
-    // the output of this function is the records object described above.
-    var records = {},
-        // the two words currently being examined
-        currentPair,
-        // the word that follows the current pair
-        currentFollow,
-        // a bool recording whether or not the current pair has already occured in the input array
-        pairExists,
-        i, j, len;
-
-    // start the examination of the input with the first three elements.
-    currentPair = inputArray[0] + ' ' + inputArray[1];
-    currentFollow = inputArray[2];
-    MakeEntry(currentPair, currentFollow, records);
-    len = inputArray.length-1;
-    for (i = 1; i < len; i++) {
-        currentPair = inputArray[i] + ' ' + inputArray[i + 1];
-        currentFollow = inputArray[i + 2];
-        if (currentFollow) {
-            MakeEntry(currentPair, currentFollow, records);
-        }
-    }
-    return records;
-}
-
-// This is called by the button click in input.js
-function MakeRandomText(input) {
+/**
+ * Makes a markov chain from the passed string and returns a new text made from that chain.
+ * @param {string }input - The string from which the chain will be built
+ * @returns {string} - The new, random text
+ */
+export function MakeRandomText(input) {
 
     let inputArray = input.split(' '),
         records = MakeMarkovChain(inputArray),
@@ -65,7 +25,7 @@ function MakeRandomText(input) {
     output.push(' ' + startingWordsArr[1]);
 
     while (true) {
-        // should never happen because of how I've structured the texts in texts.js but just in case
+
         if (!output[i]) {
             retry = true;
             break;
@@ -78,33 +38,91 @@ function MakeRandomText(input) {
         output.push(next);
 
         // If we have the needed word count AND the last word ended with a full stop end the process.
-        if (i > numCount && next.charAt(next.length - 1) === '.') {
+        // if we've gone far over the word count and still haven't found a full stop call it a day.
+        if ((i > numCount && next.charAt(next.length - 1) === '.') || (i > numCount + 100)) {
             break;
-            // if we've gone far over the word count and still havne't found a full stop call it a day.
-        } else if (i > numCount + 100) break;
+        }
     }
-    // If something has gone wrong try again. This hasn't been needed since development but you never know.
+    // If something has gone wrong try again.
     if (retry) {
         MakeRandomText(input);
     }
     return output.join(' ').trim();
 }
 
-// Given an markov chain and a two-word pair in it, returns an appropriate next word.
-function GetNextWord(preceedingPair, records) {
-    var followingWordArray = records[preceedingPair.trim()];
-    return ' ' + followingWordArray[GetRandomInt(followingWordArray.length)];
+/**
+ * Makes a markov chain from an array of words. The chain contains all adjacent word pairs in the input array and a list of the words that follow them.
+ * @param inputArray {Array}
+ * @returns {{}} - The Markov chain is an object. Each word pair is a property name, and the list of following words that property's value.
+ */
+function MakeMarkovChain(inputArray) {
+
+    // the output of this function is the records object described above.
+    let records = {},
+        // the two words currently being examined
+        currentPair,
+        // the word that follows the current pair
+        currentFollow;
+
+    for (let i = 0; i < inputArray.length - 1; i++) {
+        currentPair = inputArray[i] + ' ' + inputArray[i + 1];
+        currentFollow = inputArray[i + 2];
+        if (currentFollow) {
+            MakeEntry(currentPair, currentFollow, records);
+        }
+    }
+    return records;
 }
 
-// Finds two appropriate words to start the output text with.
+/**
+ * Adds an entry to the chain
+ * @param currPair {string} - The pair of words whose following word is to be recorded.
+ * @param followingWord {string} - The word following the pair.
+ * @param records {{}} - The chain object. Each pair is a property whose value is a list of words that follow that pair.
+ */
+function MakeEntry(currPair, followingWord, records) {
+    // if those two words have already appeared, add the following word to their associated list
+    if (records[currPair]) {
+        records[currPair].push(followingWord);
+    } else {
+        // otherwise create such a list
+        records[currPair] = [followingWord];
+    }
+}
+
+/**
+ * Finds two words to start the random text with by picking a words that comes after a full stop.
+ * @param arr {Array} - The array of words the chain is made from.
+ * @returns {*[]} - An array of two starting words.
+ */
 function GetStartingWords(arr) {
     // Find all words in the input array that end with a full stop.
-    var endWords = arr.filter(word => {
+    let endWords = arr.filter(word => {
         return word.charAt(word.length - 1) === '.';
     });
     // pick one of these at random.
-    var word = endWords[GetRandomInt(endWords.length - 1)];
-    var index = arr.indexOf(word);
+    let word = endWords[GetRandomInt(endWords.length - 1)];
+    let index = arr.indexOf(word);
     // The starting words will be the next two words.
     return [arr[index + 1], arr[index + 2]];
+}
+
+/**
+ * Picks a words that can follow a preceding pair.
+ * @param precedingPair {string} The two words whose following words we're picking from.
+ * @param records {{}} - The markov chain object containing the words to pick from.
+ * @returns {string} - The following word, picked at random from all words that can follow the preceding pair.
+ */
+function GetNextWord(precedingPair, records) {
+    let followingWordArray = records[precedingPair.trim()];
+    return ' ' + followingWordArray[GetRandomInt(followingWordArray.length)];
+}
+
+/**
+ * Gets a random int
+ * @param top {number} The maximum number returnable
+ * @returns {number} - The random number
+ */
+function GetRandomInt(top) {
+    return Math.floor(Math.random() * top);
 }
